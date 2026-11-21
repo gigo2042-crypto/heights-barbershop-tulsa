@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Heights Barbershop | Tulsa, Oklahoma</title>
+  <meta name="description" content="The Heights Barbershop at 8323 S Memorial Drive, Tulsa. Haircuts, beard work, and kids’ cuts. Call (918) 286-0789 to book.">
+  <style>
+    :root {
+      --ink: #14110e;
+      --ink-2: #1c1914;
+      --paper: #f3ead8;
+      --paper-dim: #e6d9c0;
+      --brass: #c4a36a;
+      --brass-2: #e0c48a;
+      --muted: #b7ad9a;
+      --line: rgba(196, 163, 106, 0.35);
+      --danger-note: #8a6a3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+    }
+    a { color: var(--brass-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(20, 17, 14, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 72px; gap: 16px;
+    }
+    .brand {
+      font-family: Palatino, "Palatino Linotype", "Times New Roman", serif;
+      font-size: 1.05rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--paper); font-weight: 600;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--paper); letter-spacing: 0.08em; font-size: 0.82rem; text-transform: uppercase; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--brass); color: var(--ink);
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.78rem; padding: 12px 18px; border-radius: 2px;
+      text-decoration: none; border: 0; cursor: pointer;
+    }
+    .btn:hover { background: var(--brass-2); text-decoration: none; color: var(--ink); }
+    .btn-ghost {
+      background: transparent; color: var(--paper);
+      border: 1px solid var(--brass);
+    }
+    .btn-ghost:hover { background: rgba(196,163,106,0.12); color: var(--paper); }
+    .hero { padding: 72px 0 36px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: end; }
+    .eyebrow {
+      color: var(--brass); letter-spacing: 0.22em; text-transform: uppercase;
+      font-size: 0.72rem; margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Palatino, "Palatino Linotype", "Times New Roman", serif;
+      font-weight: 500; font-size: clamp(3.1rem, 8vw, 6.4rem);
+      line-height: 0.88; letter-spacing: -0.03em;
+    }
+    .hero p.lead {
+      margin-top: 22px; max-width: 34em; color: var(--paper-dim); font-size: 1.08rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .rating {
+      display: flex; flex-direction: column; gap: 8px;
+      border-left: 1px solid var(--line); padding-left: 24px;
+      color: var(--muted);
+    }
+    .rating strong { color: var(--paper); font-size: 2.4rem; font-family: Palatino, "Palatino Linotype", serif; font-weight: 500; }
+    .stars { color: var(--brass-2); letter-spacing: 0.12em; }
+    .hero-photo, .ph {
+      background:
+        linear-gradient(180deg, rgba(20,17,14,0.15), rgba(20,17,14,0.55)),
+        repeating-linear-gradient(135deg, #2a241c 0 14px, #231e18 14px 28px);
+      border: 1px dashed rgba(224,196,138,0.45);
+      min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+      color: var(--brass-2); letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.75rem; line-height: 1.6;
+    }
+    .hero-photo { min-height: 340px; }
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-family: Palatino, "Palatino Linotype", "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .section-kicker { color: var(--brass); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 10px; }
+    .fine { color: var(--muted); font-size: 0.9rem; max-width: 44em; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .service {
+      border: 1px solid var(--line); padding: 22px 22px 18px;
+      background: var(--ink-2);
+    }
+    .service h3 {
+      font-family: Palatino, "Palatino Linotype", serif;
+      font-weight: 500; font-size: 1.35rem; margin-bottom: 8px;
+    }
+    .price { color: var(--brass-2); font-size: 1.15rem; letter-spacing: 0.04em; }
+    .service p { color: var(--muted); font-size: 0.92rem; margin-top: 6px; }
+    .notes { margin-top: 22px; color: var(--muted); font-size: 0.88rem; max-width: 54em; }
+    .notes li { margin: 0 0 6px 1.1em; }
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    blockquote {
+      background: var(--ink-2); border: 1px solid var(--line);
+      padding: 24px 22px; display: flex; flex-direction: column; gap: 16px;
+    }
+    blockquote p { font-size: 1rem; color: var(--paper); }
+    blockquote footer { color: var(--muted); font-size: 0.82rem; margin-top: auto; }
+    .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .hours { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .hours td { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .hours td:last-child { text-align: right; color: var(--brass-2); }
+    address { font-style: normal; margin: 12px 0 18px; line-height: 1.6; }
+    .gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-top: 28px; }
+    .gallery .ph:first-child { grid-row: span 2; min-height: 420px; }
+    .gallery .ph { min-height: 200px; }
+    footer.site {
+      border-top: 1px solid var(--line); padding: 28px 0 48px;
+      color: var(--muted); font-size: 0.82rem;
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .sticky-call {
+      display: none;
+    }
+    @media (max-width: 860px) {
+      .hero, .services, .reviews, .visit, .gallery { grid-template-columns: 1fr; }
+      .rating { border-left: 0; border-top: 1px solid var(--line); padding: 18px 0 0; }
+      .nav-links a:not(.btn) { display: none; }
+      .gallery .ph:first-child { grid-row: auto; min-height: 240px; }
+      .sticky-call {
+        display: block; position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 30;
+        text-align: center;
+      }
+      .sticky-call .btn { width: 100%; padding: 16px; }
+      body { padding-bottom: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">The Heights</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Hours &amp; Location</a>
+        <a class="btn" href="tel:+19182860789">Book / Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Barbershop · South Memorial · Tulsa</p>
+        <h1>The<br>Heights</h1>
+        <p class="lead">A clean, friendly shop on South Memorial Drive. Haircuts, beard work, and kids’ cuts — walk-ins and appointments, seven days a week.</p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+19182860789">Call (918) 286-0789</a>
+          <a class="btn btn-ghost" href="#visit">Hours &amp; address</a>
+        </div>
+      </div>
+      <div class="rating">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div><strong>4.9</strong></div>
+        <p>From 411 Google reviews</p>
+        <p>8323 S Memorial Dr<br>Tulsa, OK 74133</p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-photo" role="img" aria-label="Placeholder for a photo of the shop exterior or sign">
+        PHOTO PLACEHOLDER<br>Shop exterior or sign on South Memorial Drive<br>Replace with a real photo of The Heights Barbershop
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <p class="section-kicker">The chair</p>
+        <h2>Services &amp; prices</h2>
+        <p class="fine">Regular prices as listed on The Heights Barbershop “Julio” Booksy page, retrieved November 21, 2026. Other barbers in the shop may set their own rates.</p>
+        <div class="services">
+          <article class="service">
+            <h3>Adult cut</h3>
+            <p class="price">$40 · 40 min</p>
+          </article>
+          <article class="service">
+            <h3>Adult cut + beard</h3>
+            <p class="price">$50 · 45 min</p>
+          </article>
+          <article class="service">
+            <h3>Junior haircut, ages 2–12</h3>
+            <p class="price">$35 · 35 min</p>
+          </article>
+          <article class="service">
+            <h3>Beard maintenance</h3>
+            <p class="price">$20 · 20 min</p>
+          </article>
+          <article class="service">
+            <h3>Eyebrows</h3>
+            <p class="price">$5 · 5 min</p>
+          </article>
+          <article class="service">
+            <h3>Sunday &amp; after hours</h3>
+            <p class="price">Higher rates on Booksy</p>
+            <p>Sunday adult cut $50; Sunday cut + beard $60; Sunday kids’ cut $45. After-hours prices are listed on Booksy.</p>
+          </article>
+        </div>
+        <ul class="notes">
+          <li>Julio’s Booksy page asks clients to call or text if they have trouble booking, and says “please bring cash.” A walk-in review from August 2026 also said the shop is cash only and has an ATM. Booksy lists cards as accepted — please confirm when you book.</li>
+          <li>Holiday and late-evening rates are listed separately on Booksy and are not shown as everyday prices here.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="wrap">
+        <p class="section-kicker">From the chair</p>
+        <h2>What clients say</h2>
+        <p class="fine">Short quotes from recent reviews collected on BestProsInTown, retrieved November 21, 2026. These appear to be Google reviews republished by that site.</p>
+        <div class="reviews">
+          <blockquote>
+            <p>“Jose has been cutting my hair for almost 6 months now. I come every 2 weeks and Jose always accommodates my schedule and comes in even when the shop is closed! It’s a great place, clean and friendly throughout the entire shop!”</p>
+            <footer>Review posted October 2026 · 5 stars · via BestProsInTown</footer>
+          </blockquote>
+          <blockquote>
+            <p>“My barber Julio really put in work! He really showed off his skills as a pro by recommending me my new haircut and products for aftercare. The vibe in this place is unbeatable. Even the other barbers around were super friendly.”</p>
+            <footer>Review posted September 2026 · via BestProsInTown</footer>
+          </blockquote>
+          <blockquote>
+            <p>“We had to get my son’s haircut fixed, they took us as a walk in. Super nice guys, clean shop, good music. His hair looks SO GOOD now. Andres gives a really good haircut.”</p>
+            <footer>Review posted August 2026 · via BestProsInTown</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="wrap visit">
+        <div>
+          <p class="section-kicker">Visit</p>
+          <h2>Hours &amp; location</h2>
+          <address>
+            The Heights Barbershop<br>
+            8323 S Memorial Dr<br>
+            Tulsa, OK 74133<br>
+            <a href="tel:+19182860789">(918) 286-0789</a>
+          </address>
+          <p class="fine">Hours from the shop’s Google listing as reported November 21, 2026.</p>
+          <table class="hours">
+            <tr><td>Monday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Friday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Sunday</td><td>10:00 AM – 5:00 PM</td></tr>
+          </table>
+          <div class="hero-actions">
+            <a class="btn" href="tel:+19182860789">Book / Call</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=The+Heights+Barbershop%2C+8323+S+Memorial+Dr%2C+Tulsa%2C+OK+74133" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="ph" role="img" aria-label="Placeholder for a photo of the shop interior">
+            PHOTO PLACEHOLDER<br>Shop interior<br>Replace with a real photo
+          </div>
+          <div class="ph" role="img" aria-label="Placeholder for a photo of a haircut">
+            PHOTO PLACEHOLDER<br>Haircut or fade<br>Replace with a real photo
+          </div>
+          <div class="ph" role="img" aria-label="Placeholder for a photo of the barbers at work">
+            PHOTO PLACEHOLDER<br>Barbers at work<br>Replace with a real photo
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="wrap">
+    <footer class="site">
+      <p>The Heights Barbershop · 8323 S Memorial Dr, Tulsa, OK 74133 · <a href="tel:+19182860789">(918) 286-0789</a></p>
+      <p>Preview page using the shop’s publicly listed details. Photos are placeholders.</p>
+    </footer>
+  </div>
+  <div class="sticky-call"><a class="btn" href="tel:+19182860789">Book / Call (918) 286-0789</a></div>
+</body>
+</html>
